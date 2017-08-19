@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+    <!-- 约束xml的根节点为git -->
+    <xs:element name="git" type="gitType"></xs:element>
+
+    <xs:complexType name="gitType">
+        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="order" type="orderType"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="orderType">
+        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="execute" type="xs:string"></xs:element>
+            <xs:element name="description" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

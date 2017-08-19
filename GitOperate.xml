@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<git xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="schema.xsd">
+
+    <order>
+        <execute>git add [file path]</execute>
+        <description>添加文件到本地创库</description>
+    </order>
+    <order>
+        <execute>git commit -m "需要的描述"</execute>
+        <description>提交[git add]的内容</description>
+    </order>
+    <order>
+        <execute>git push -u origin master</execute>
+        <description>将本机的仓库修改同步到master</description>
+    </order>
+    <order>
+        <execute>git rm [file path]</execute>
+        <description>删除文件</description>
+    </order>
+</git>
