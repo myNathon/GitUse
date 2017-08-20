@@ -1,22 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <git xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:noNamespaceSchemaLocation="schema.xsd">
+    <!--使用本地的schema文件约束-->
+    <order num="1" overview="用户信息配置，git提交必要前提">
+        <execute>git config --global user.name "NAME"</execute>
+        <description>配置用户名</description>
 
-    <order>
+        <execute>git config --global user.email "XXX@XXX.com"</execute>
+        <description>配置邮箱</description>
+    </order>
+    <order num="2" overview="创建git仓库，本地目录初始化">
+        <execute>git init</execute>
+        <description>初始化当前目录</description>
+    </order>
+    <order num="3" overview="获取运程git仓库">
+        <execute>git clone http://仓库</execute>
+        <description>克隆运程仓库</description>
+    </order>
+    <order num="4" overview="添加文件或目录，可用通配符">
         <execute>git add [file path]</execute>
         <description>添加文件到本地创库</description>
+
+        <execute>git add *.java</execute>
+        <description>添加所有Java后缀的文件</description>
+
+        <execute>git add /code/</execute>
+        <description>添加目录/code/下所有文件</description>
     </order>
-    <order>
-        <execute>git commit -m "需要的描述"</execute>
-        <description>提交[git add]的内容</description>
+    <order num="5" overview="查看文件状态：
+                            unversioned/untracked[未跟踪]、modified[修改]、
+                            staged[添加]、committed[提交]">
+        <execute>git status</execute>
+        <description>查看各文件的状态</description>
     </order>
-    <order>
-        <execute>git push -u origin master</execute>
-        <description>将本机的仓库修改同步到master</description>
+    <order num="6" overview="查看修改">
+        <execute>git diff</execute>
+        <description>确认处于staged状态的文件有哪些</description>
+
+        <execute>git diff --staged</execute>
+        <description>查看staged与上次提交快照之间的区别</description>
+
+        <execute>git diff --cashed</execute>
+        <description>查看staged与上次提交快照之间的区别</description>
     </order>
-    <order>
+    <order num="7" overview="提交">
+        <execute>git commit</execute>
+        <description>提交并添加多行日志[弹出编辑器]</description>
+
+        <execute>git commit -m "日志描述"</execute>
+        <description>提交并添加单行日志</description>
+
+        <execute>git commit -a</execute>
+        <description>提交当前目录下的所有修改</description>
+    </order>
+    <order num="8" overview="文件删除">
         <execute>git rm [file path]</execute>
         <description>删除文件</description>
+
+        <execute>git rm --cashed [file path]</execute>
+        <description>从git仓库删除，但当前工作目录保留</description>
+    </order>
+    <order num="9" overview="查看提交历史">
+        <execute>git log --stat</execute>
+        <description>仅显示摘要选项</description>
+
+        <execute>git log --pretty=online</execute>
+        <description>定制记录格式</description>
+
+        <execute>git log--graph</execute>
+        <description>图像化分支和版本更新</description>
+    </order>
+    <order num="10" overview="运程仓库">
+        <execute>git remote</execute>
+        <description>查看当前的远程库</description>
+
+        <execute>git remote -v</execute>
+        <description>显示克隆地址</description>
+
+        <execute>git remote add [NAME] [URL]</execute>
+        <description>添加运程仓库</description>
+
+        <execute>git fetch [REMOTE-NAME]</execute>
+        <description>从运程仓库抓取数据</description>
+
+        <execute>git fetch [REMOTE-NAME]</execute>
+        <description>从运程仓库抓取数据</description>
+
+        <execute>git pull [REMOTE-NAME]</execute>
+        <description>从运程仓库抓取数据</description>
+
+        <execute>git push [REMOTE-NAME] [BRANCH-NAME]</execute>
+        <description>推送数据到运程仓库</description>
+
+        <execute>git remote show origin</execute>
+        <description>查看远程仓库信息</description>
+
+        <execute>git remote rename [OLD-NAME] [NEW-NAME]</execute>
+        <description>远程仓库的重命名</description>
+
+        <execute>git remote rm [REMOTE-NAME]</execute>
+        <description>远程仓库的删除</description>
+    </order>
+    <order num="11" overview="Git分支处理">
+        <execute>git branch</execute>
+        <description>显示所有分支</description>
+
+        <execute>git branch --merged</execute>
+        <description>查看已合并的分支</description>
+
+        <execute>git branch --no-merged</execute>
+        <description>查看未合并的分支</description>
+
+        <execute>git branch [BRANCH-NAME]</execute>
+        <description>创建[BRANCH-NAME]分支</description>
+
+        <execute>git checkout [BRANCH-NAME]</execute>
+        <description>切换到[BRANCH-NAME]分支</description>
+
+        <execute>git checkout -b [BRANCH-NAME]</execute>
+        <description>创建和切换的组合，即创建[BRANCH-NAME]分支并切换到该分支</description>
+
+        <execute>git merge [BRANCH-NAME]</execute>
+        <description>
+            将[BRANCH-NAME]分支合并，这之前需要切换的[master]分支
+            即执行 git checkout master
+        </description>
+
+        <execute>git branch -d [BRANCH-NAME]</execute>
+        <description>删除分支[BRANCH-NAME]</description>
     </order>
 </git>

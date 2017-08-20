@@ -16,6 +16,11 @@
             <xs:element name="execute" type="xs:string"></xs:element>
             <xs:element name="description" type="xs:string"></xs:element>
         </xs:sequence>
+        <xs:attributeGroup ref="orderAttribute"></xs:attributeGroup>
     </xs:complexType>
 
+    <xs:attributeGroup name="orderAttribute">
+        <xs:attribute name="num" type="xs:int" use="required"></xs:attribute>
+        <xs:attribute name="overview" type="xs:string" use="required"></xs:attribute>
+    </xs:attributeGroup>
 </xs:schema>
